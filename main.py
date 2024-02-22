@@ -70,7 +70,7 @@ def update_task(task_id):
         task.status=bool(status)
         db.session.commit()
 
-        result = db.session.execute(db.select(Task).where(Task.status == 1))
+        result = db.session.execute(db.select(Task).where(Task.status == bool(1)))
         all_done = list(result.scalars())
         data = db.session.execute(db.select(Task))
         row_data = list(data.scalars())
