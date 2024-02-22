@@ -86,7 +86,7 @@ def update_task(task_id):
                 db.session.commit()
             return redirect(url_for('home',all_rows=row_data))
 
-        return redirect(url_for('home'))
+        return redirect(url_for('home',all_rows=row_data))
 
     return render_template("index.html")
 
