@@ -22,7 +22,7 @@
                 <th>Task</th><th>Completed</th>
             {% for task in all_tasks: %}
                 <form action="{{url_for('update_task',task_id=task.id)}}" method="post">
-                {% if bool(task.status)==1: %}
+                {% if task.status==1: %}
             <tr>
             <td><s class="strike">{{task.task_name}}</s></td><td><input type="checkbox" name="status" value="{{task.status}}" checked></td><td><a href="{{url_for('delete_task',task_id=task.id)}}">❌</a></td>
             <td><button class="btn btn-success" type="submit">Done</button></td>
