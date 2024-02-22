@@ -61,12 +61,12 @@ def delete_task(task_id):
     return redirect(url_for('home'))
 
 
-@app.route("/update-task/<int:task_id>",methods=["GET","POST"])
-def update_task(task_id):
+@app.route("/update-task",methods=["GET","POST"])
+def update_task():
     if request.method=="POST":
         status=request.form.get("status")
-
-        task=db.session.execute(db.select(Task).where(Task.id==task_id)).scalar()
+        index=request.args.get("task_id")
+        task=db.session.execute(db.select(Task).where(Task.id==index)).scalar()
         task.status=bool(status)
         db.session.commit()
 
