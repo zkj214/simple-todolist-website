@@ -1,0 +1,38 @@
+body
+{
+    font-size: 20px;
+    background-color: #9AD0C2;
+    color: #F1FADA;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.text-msg
+{
+    text-align: center;
+    font-weight: normal;
+    color: white;
+    margin-top: 50px;
+}
+
+.strike
+{
+    text-decoration-thickness: 2px;
+    text-decoration-color: #3C3633;
+    color: #3C3633;
+}
+
+h2
+{
+    color: #3C3633;
+}
+
+.header
+{
+    background: #3C3633;
+    padding: 20px;
+    font-family: "Kanit", sans-serif;
+}
