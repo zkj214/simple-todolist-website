@@ -40,7 +40,7 @@ def home():
     add_form=AddTaskForm()
 
     if add_form.validate_on_submit():
-        new_task=Task(task_name=add_form.task.data,status=request.form.get("status"))
+        new_task=Task(task_name=add_form.task.data,status=bool(request.form.get("status")))
         db.session.add(new_task)
         db.session.commit()
         return redirect(url_for('home'))
@@ -67,7 +67,7 @@ def update_task(task_id):
         status=request.form.get("status")
 
         task=db.session.execute(db.select(Task).where(Task.id==task_id)).scalar()
-        task.status=status
+        task.status=bool(status)
         db.session.commit()
 
         result = db.session.execute(db.select(Task).where(Task.status == 1))
