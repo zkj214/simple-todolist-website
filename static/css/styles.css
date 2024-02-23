@@ -37,3 +37,16 @@ h2
     padding: 20px;
     font-family: "Kanit", sans-serif;
 }
+
+.footer
+{
+    background: #3C3633;
+    padding: 25px;
+    height: 100px;
+    text-align: center;
+}
+
+.container
+{
+    min-height: 800px;
+}

@@ -5,10 +5,11 @@ from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap5  #pip install bootstrap-flask
 from flask_sqlalchemy import SQLAlchemy
 import os
+from datetime import date
 
 
 app=Flask(__name__)
-app.config["SECRET_KEY"]=os.environ.get("FLASK_KEY")
+app.config["SECRET_KEY"]="willbeworkinginDubai"
 
 bootstrap=Bootstrap5(app)
 
@@ -34,6 +35,7 @@ class AddTaskForm(FlaskForm):
 
 @app.route('/',methods=["GET","POST"])
 def home():
+    current_year=date.today().year
     result=db.session.execute(db.select(Task))
     all_tasks=list(result.scalars())
 
@@ -44,7 +46,7 @@ def home():
         db.session.add(new_task)
         db.session.commit()
         return redirect(url_for('home'))
-    return render_template("index.html",form=add_form, all_tasks=all_tasks)
+    return render_template("index.html",form=add_form, all_tasks=all_tasks, year=current_year)
 
 
 @app.route("/delete-task/<int:task_id>")
