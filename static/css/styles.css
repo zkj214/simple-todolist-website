@@ -3,6 +3,7 @@ body
     font-size: 20px;
     background-color: #9AD0C2;
     color: #F1FADA;
+    min-height: 100vh;
 }
 
 a
@@ -44,9 +45,4 @@ h2
     padding: 25px;
     height: 100px;
     text-align: center;
-}
-
-.container
-{
-    min-height: 800px;
 }

@@ -1,46 +1,48 @@
 {% extends "base.html" %}
 {% from "bootstrap5/form.html" import render_form %}
 {% block title %}Task List{% endblock %}
+
 {% block content %}
 {% include "header.html" %}
 <div class="container">
-    <div class="row text-left">
-        {{render_form(form,novalidate=True)}}
-        {% with messages=get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="text-msg">{{message}}</p>
-                {% endfor %}
-            {% endif %}
-            {% endwith %}
+    <div class="row">
+        <div class="col-sm-12 text-left">
+            {{render_form(form,novalidate=True)}}
+            {% with messages=get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="text-msg">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
 
-        {% if not all_tasks: %}
-            <p class="text-msg">No task at the moment.</p>
-        {% else %}
-            <h2>Task To Do For Today</h2>
-            <table>
-                <th>Task</th><th>Completed</th>
-            {% for task in all_tasks: %}
-                <form action="{{url_for('update_task',task_id=task.id)}}" method="POST">
-                {% if task.status==1: %}
-            <tr>
-            <td><s class="strike">{{task.task_name}}</s></td><td><input type="checkbox" name="status" value="{{task.status}}" checked></td><td><a href="{{url_for('delete_task',task_id=task.id)}}">❌</a></td>
-            <td><button class="btn btn-success" type="submit">Done</button></td>
-            </tr>
-                </form>
-                    {% else %}
-                <form action="{{url_for('update_task',task_id=task.id)}}" method="post">
+            {% if not all_tasks: %}
+                <p class="text-msg">No task at the moment.</p>
+            {% else %}
+                <h2>Task To Do For Today</h2>
+                <table>
+                    <th>Task</th><th>Completed</th>
+                {% for task in all_tasks: %}
+                    <form action="{{url_for('update_task',task_id=task.id)}}" method="POST">
+                    {% if task.status==1: %}
                 <tr>
-                <td>{{task.task_name}}</td><td><input type="checkbox" name="status" value="False"></td><td><a href="{{url_for('delete_task',task_id=task.id)}}">❌</a></td>
+                <td><s class="strike">{{task.task_name}}</s></td><td><input type="checkbox" name="status" value="{{task.status}}" checked></td><td><a href="{{url_for('delete_task',task_id=task.id)}}">❌</a></td>
                 <td><button class="btn btn-success" type="submit">Done</button></td>
                 </tr>
-                {% endif %}
-                </form>
-            {% endfor %}
-            </table>
-        {% endif %}
+                    </form>
+                        {% else %}
+                    <form action="{{url_for('update_task',task_id=task.id)}}" method="post">
+                    <tr>
+                    <td>{{task.task_name}}</td><td><input type="checkbox" name="status" value="False"></td><td><a href="{{url_for('delete_task',task_id=task.id)}}">❌</a></td>
+                    <td><button class="btn btn-success" type="submit">Done</button></td>
+                    </tr>
+                    {% endif %}
+                    </form>
+                {% endfor %}
+                </table>
+            {% endif %}
+        </div>
     </div>
-
 </div>
 {% include "footer.html" %}
 {% endblock %}
