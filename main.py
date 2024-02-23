@@ -9,7 +9,7 @@ from datetime import date
 
 
 app=Flask(__name__)
-app.config["SECRET_KEY"]="willbeworkinginDubai"
+app.config["SECRET_KEY"]=os.environ.get("FLASK_KEY")
 
 bootstrap=Bootstrap5(app)
 
