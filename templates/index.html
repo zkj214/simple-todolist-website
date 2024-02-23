@@ -5,9 +5,8 @@
 {% block content %}
 {% include "header.html" %}
 <div class="wrapper">
-<div class="container">
-    <div class="row">
-        <div class="col text-left">
+    <div class="container">
+        <div class="row text-left">
             {{render_form(form,novalidate=True)}}
             {% with messages=get_flashed_messages() %}
                 {% if messages %}
@@ -44,7 +43,6 @@
             {% endif %}
         </div>
     </div>
-</div>
 </div>
 {% include "footer.html" %}
 {% endblock %}
