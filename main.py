@@ -20,7 +20,7 @@ db.init_app(app)
 
 class Task(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    task_name=db.Column(db.String,nullable=False)
+    task_name=db.Column(db.String,nullable=False,unique=True)
     status=db.Column(db.Boolean,nullable=False,default=False)
 
 
