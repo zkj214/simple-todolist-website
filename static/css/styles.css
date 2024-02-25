@@ -60,6 +60,7 @@ table
 {
     .input_form
     {
+        display: flex;
         align-items: center;
     }
 }
@@ -68,6 +69,7 @@ table
 {
     .input_form
     {
+        display: flex;
         align-items: center;
     }
 }
