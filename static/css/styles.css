@@ -55,3 +55,19 @@ table
 {
     width: 100%;
 }
+
+@media screen(max-width:768px)
+{
+    .input_form
+    {
+        text-align: center;
+    }
+}
+
+@media screen(max-width:997px)
+{
+    .input_form
+    {
+        text-align: left;
+    }
+}
