@@ -60,7 +60,7 @@ table
 {
     .input_form
     {
-        text-align: center;
+        align-items: center;
     }
 }
 
@@ -68,6 +68,6 @@ table
 {
     .input_form
     {
-        text-align: left;
+        align-items: center;
     }
 }
