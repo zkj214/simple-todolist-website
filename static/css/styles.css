@@ -55,21 +55,3 @@ table
 {
     width: 100%;
 }
-
-@media screen(max-width:768px)
-{
-    .input_form
-    {
-        display: flex;
-        align-items: center;
-    }
-}
-
-@media screen(max-width:997px)
-{
-    .input_form
-    {
-        display: flex;
-        align-items: center;
-    }
-}
